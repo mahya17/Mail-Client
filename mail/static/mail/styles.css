@@ -1,0 +1,18 @@
+textarea {
+    min-height: 400px;
+}
+.email-item {
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.email-item:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+#email-detail-view .card {
+    margin-top: 20px;
+}

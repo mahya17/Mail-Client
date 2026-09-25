@@ -1,0 +1,37 @@
+{% extends "mail/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h3>{{ request.user.email }}</h3>
+
+    <div class="btn-group mb-3">
+        <button class="btn btn-outline-primary" id="inbox">Inbox</button>
+        <button class="btn btn-outline-primary" id="compose">Compose</button>
+        <button class="btn btn-outline-primary" id="sent">Sent</button>
+        <button class="btn btn-outline-primary" id="archived">Archived</button>
+        <a class="btn btn-outline-danger" href="{% url 'logout' %}">Log Out</a>
+    </div>
+
+    <div id="emails-view"></div>
+
+    <div id="compose-view" style="display: none;">
+        <h3>New Email</h3>
+        <form id="compose-form">
+            <div class="form-group">
+                <input class="form-control" id="compose-recipients" placeholder="Recipients (comma separated)" required />
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="compose-subject" placeholder="Subject" />
+            </div>
+            <textarea class="form-control" id="compose-body" rows="10"></textarea>
+            <input type="submit" class="btn btn-primary mt-3" value="Send"/>
+        </form>
+    </div>
+
+    <div id="email-detail-view" style="display: none;"></div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'mail/inbox.js' %}"></script>
+{% endblock %}
